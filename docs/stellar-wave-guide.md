@@ -100,11 +100,12 @@ Use the Stellar SDK to build the unsigned transaction, then ask the connected wa
 
 ```ts
 import {
+  Asset,
   BASE_FEE,
+  Horizon,
   Networks,
   Operation,
   TransactionBuilder,
-  Horizon,
 } from "@stellar/stellar-sdk";
 
 export async function signAndSubmitPayment(params: {
@@ -123,7 +124,7 @@ export async function signAndSubmitPayment(params: {
     .addOperation(
       Operation.payment({
         destination: params.destinationPublicKey,
-        asset: Operation.nativeAsset(),
+        asset: Asset.native(),
         amount: params.amount,
       }),
     )
