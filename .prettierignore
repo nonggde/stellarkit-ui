@@ -1,0 +1,10 @@
+AGENTS.md
+CLAUDE.md
+
+node_modules
+.next
+out
+build
+coverage
+packages/*/.next
+packages/*/dist

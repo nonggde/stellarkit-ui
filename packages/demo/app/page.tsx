@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { STELLARKIT_UI_VERSION } from "@stellarkit/ui";
 
 export default function Home() {
   return (
@@ -13,6 +14,9 @@ export default function Home() {
           priority
         />
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
+          <p className="rounded-full bg-zinc-100 px-3 py-1 font-mono text-xs text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300">
+            @stellarkit/ui v{STELLARKIT_UI_VERSION}
+          </p>
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
             To get started, edit the page.tsx file.
           </h1>

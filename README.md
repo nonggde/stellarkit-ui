@@ -1,22 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This repository is an npm workspaces monorepo for StellarKit UI.
+
+## Workspace Layout
+
+- `packages/ui` contains the `@stellarkit/ui` package.
+- `packages/demo` contains the Next.js demo app.
+
+The demo imports from `@stellarkit/ui` through the local npm workspace so package changes can be tested in the app before publishing.
 
 ## Getting Started
 
-First, run the development server:
+First, install all workspace dependencies:
+
+```bash
+npm install
+```
+
+Then run the demo development server from the repo root:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the demo page by modifying `packages/demo/app/page.tsx`. The page auto-updates as you edit the file.
+
+## Monorepo Commands
+
+Run these from the repository root:
+
+```bash
+npm run dev
+npm run build
+npm run lint
+npm run typecheck
+```
+
+Useful package-scoped commands:
+
+```bash
+npm run build --workspace @stellarkit/ui
+npm run build --workspace @stellarkit/demo
+npm run dev --workspace @stellarkit/demo
+```
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
