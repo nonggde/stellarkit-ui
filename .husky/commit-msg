@@ -1,0 +1,17 @@
+node - "$1" <<'NODE'
+const fs = require("node:fs");
+
+const messageFile = process.argv[2];
+const [subject = ""] = fs.readFileSync(messageFile, "utf8").split(/\r?\n/);
+const conventionalCommit =
+  /^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\([A-Za-z0-9_.-]+\))?!?: .+/;
+
+if (!conventionalCommit.test(subject)) {
+  console.error("Commit message must follow Conventional Commits.");
+  console.error("Example: feat: add wallet display");
+  console.error(
+    "Allowed types: build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test",
+  );
+  process.exit(1);
+}
+NODE
